@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import DisplayMusicTable from './DisplayMusicTable/DisplayMusicTable';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            
+            displayMusic: []
          }
     }
 
@@ -19,6 +20,10 @@ class App extends Component {
     async makeGetRequest(){
         try{
             let response = await axios.get('http://127.0.0.1:8000/music/');
+            console.log(this)
+            this.setState({
+                displayMusic: response.data
+            });
         }
         catch(ex){
             console.log(ex);
@@ -45,7 +50,9 @@ class App extends Component {
 
     render() { 
         return ( 
-            <h1>HERYUB</h1>
+            <h1>
+                <DisplayMusicTable showMusic={this.state.displayMusic}/>
+            </h1>
          );
     }
 }
