@@ -8,12 +8,11 @@ const DisplayMusicTable = (props) => {
         <div>
             <table className="table">
                 <tr>
-                    
                     <th className="th">Title</th>
                     <th className="th">Album</th>
                     <th className="th">Artist</th>
                     <th className="th">Release Date</th>
-                    <th className="th"> Delete </th>
+                    <th className="th"> Delete</th>
                 </tr>
                     {props.showMusic.map(showMusic => (
                         <tr key={showMusic.id}>
@@ -24,6 +23,7 @@ const DisplayMusicTable = (props) => {
                             <td className="td">{showMusic.release_date}</td>
                             
                             <button onClick={() => props.deleteRow(showMusic.id)}> DELETE  </button>
+                            
                             
                         </tr>
                         ))}
