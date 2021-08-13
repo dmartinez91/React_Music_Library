@@ -4,7 +4,7 @@ import './DisplayMusicTable.css';
 const DisplayMusicTable = (props) => {
     return ( 
         <React.Fragment>
-        
+        <form> 
         <div>
             <table className="table">
                 <tr>
@@ -29,6 +29,7 @@ const DisplayMusicTable = (props) => {
                         ))}
             </table>
         </div>
+        </form>
         </React.Fragment>
      );
 }
