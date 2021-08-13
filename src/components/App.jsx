@@ -32,7 +32,7 @@ class App extends Component {
 
     async makePostRequest(){
         try{
-            let response = await axios.post('http://127.0.0.1:8000/music/')
+            let response = await axios.post('http://127.0.0.1:8000/music/');
         }
         catch(ex){
             console.log(ex);
@@ -41,7 +41,10 @@ class App extends Component {
 
     async makeDeleteRequest(){
         try{
-            let response = await axios.delete('http://127.0.0.1:8000/music/')
+            let response = await axios.delete('http://127.0.0.1:8000/music/');
+            this.setState({
+                deleteMusic: response.data
+            });
         }
         catch(ex){
             console.log(ex);
@@ -51,7 +54,7 @@ class App extends Component {
     render() { 
         return ( 
             <h1>
-                <DisplayMusicTable showMusic={this.state.displayMusic}/>
+                <DisplayMusicTable showMusic={this.state.displayMusic} deleteRow={this.makeDeleteRequest}/>
             </h1>
          );
     }
