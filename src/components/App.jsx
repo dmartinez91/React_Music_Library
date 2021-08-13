@@ -39,9 +39,9 @@ class App extends Component {
         }
     }
 
-    async makeDeleteRequest(){
+    async makeDeleteRequest(id){
         try{
-            let response = await axios.delete('http://127.0.0.1:8000/music/');
+            let response = await axios.delete(`'http://127.0.0.1:8000/music/${id}'`);
             this.setState({
                 deleteMusic: response.data
             });
