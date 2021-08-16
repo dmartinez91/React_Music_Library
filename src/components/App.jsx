@@ -19,7 +19,6 @@ class App extends Component {
         this.makeGetRequest();
         this.makeDeleteRequest();
         this.addNewSong();
-        this.makeSearchRequest();
     }
 
     handleChange(e){
