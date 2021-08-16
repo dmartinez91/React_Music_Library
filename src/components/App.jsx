@@ -31,18 +31,6 @@ class App extends Component {
         }
     }
 
-    async makePostRequest(){
-        try{
-            let response = await axios.post(`http://127.0.0.1:8000/music/`);
-            this.setState({
-                displayMusic: response.data
-            })
-        }
-        catch(ex){
-            console.log(ex);
-        }
-    }
-
     async makeDeleteRequest(id){
         try{
             let response = await axios.delete(`http://127.0.0.1:8000/music/${id}/`);
