@@ -6,21 +6,21 @@ const DisplayMusicTable = (props) => {
         <React.Fragment>
         <form> 
         <div>
-            <table className="table">
+            <table className="table table-dark table-borderless">
                 <tr>
-                    <th className="th">Title</th>
-                    <th className="th">Album</th>
-                    <th className="th">Artist</th>
-                    <th className="th">Release Date</th>
-                    <th className="th"> Delete</th>
+                    <th className="table-primary">Title</th>
+                    <th className="table-primary">Album</th>
+                    <th className="table-primary">Artist</th>
+                    <th className="table-primary">Release Date</th>
+                    <th className="table-primary"> Delete</th>
                 </tr>
                     {props.showMusic.map(showMusic => (
                         <tr key={showMusic.id}>
                             
-                            <td className="td">{showMusic.title}</td>
-                            <td className="td">{showMusic.album}</td>
-                            <td className="td">{showMusic.artist}</td>
-                            <td className="td">{showMusic.release_date}</td>
+                            <td className="table-primary">{showMusic.title}</td>
+                            <td className="table-primary">{showMusic.album}</td>
+                            <td className="table-primary">{showMusic.artist}</td>
+                            <td className="table-primary">{showMusic.release_date}</td>
                             
                             <button className="btn btn-primary text-yellow" onClick={() => props.deleteRow(showMusic.id)}> DELETE  </button>
                             
