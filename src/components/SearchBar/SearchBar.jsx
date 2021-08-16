@@ -1,16 +1,18 @@
-import React from 'react';
-import './SearchBar.css';
+import React, { Component } from "react";
+import './SearchBar.css'
 
 const SearchBar = (props) => {
- 
-    return ( 
-        <input type='search'
-        className='search'
-        placeholder={props.placeholder}
-        onChange={props.handleChange} 
 
-       />
-     );
+      return (
+        <form>
+          <input
+            type="text"
+            className="search-box"
+            placeholder="Search for..."
+            onChange={props.thisChange}
+          />
+        </form>
+      );
 }
- 
+
 export default SearchBar;

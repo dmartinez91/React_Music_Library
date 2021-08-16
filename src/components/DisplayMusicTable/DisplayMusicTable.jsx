@@ -26,9 +26,17 @@ const DisplayMusicTable = (props) => {
                             
                             
                         </tr>
+                        
                         ))}
             </table>
-        </div>
+        
+
+
+        
+         </div>
+
+
+        
         </form>
         </React.Fragment>
      );

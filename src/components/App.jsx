@@ -8,10 +8,10 @@ import SearchBar from './SearchBar/SearchBar';
 class App extends Component {
     constructor(props) {
         super(props);
+        this.handleChange = this.handleChange.bind(this)
         this.state = { 
             displayMusic: [],
-            songlist: [],
-            search: ''   
+            userInput: ''
         }
     }
 
@@ -19,6 +19,15 @@ class App extends Component {
         this.makeGetRequest();
         this.makeDeleteRequest();
         this.addNewSong();
+        this.makeSearchRequest();
+    }
+
+    handleChange(e){
+        this.setState({
+            userInput: e.target.value 
+        })
+        console.log(e.target.value)
+
     }
 
     async makeGetRequest(){
@@ -56,26 +65,32 @@ class App extends Component {
     };
 
 
-    searchSong = async(songSearch) => {
-        let response = await axios.get(`http://127.0.0.1:8000/music/`, songSearch);
-        let newArray = this.state.displayMusic;
-        newArray.push(songSearch)
+    onChange = e => {
+        const { value } = e.target;
         this.setState({
-            displayMusic: songSearch
-        })
+          query: value
+        });
+    
+        this.search(value);
+      };
 
-    };
 
     render() { 
-        const {songlist, search} = this.state
-        const filteredSongs = songlist.filter(song => (song.DisplayMusic.toLowerCase().includes(search.toLowerCase())))
+        const userInput = this.state.userInput
+
+
         return ( 
             <div>
                 <h2>
-                <DisplayMusicTable showMusic={this.state.displayMusic} deleteRow={this.makeDeleteRequest}/>
+                <DisplayMusicTable showMusic={this.state.displayMusic} deleteRow={this.makeDeleteRequest} />
                 <SongForm addSong = {this.addNewSong}/>
-                <SearchBar placeholder='Search Song' handleChange={(e) => this.setState({search: e.target.value})}/>
-                
+                <SearchBar thisChange={this.handleChange} onChange={this.onChange} />
+                <ul> 
+                    {this.state.displayMusic.filter((song) => song.title.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {song.artist} {song.title} </li>) }
+                    {this.state.displayMusic.filter((song) => song.artist.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {song.artist} {song.title} </li>) }
+                    {this.state.displayMusic.filter((song) => song.album.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {song.artist} {song.title} </li>) }
+                    {this.state.displayMusic.filter((song) => song.release_date.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {song.artist} {song.title} </li>) }
+                </ul>
                 </h2>
             
             </div>
