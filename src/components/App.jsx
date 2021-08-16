@@ -55,7 +55,8 @@ class App extends Component {
         }
     }
 
-    addNewSong = (newSong) => {
+    addNewSong = async(newSong) => {
+        let response = await axios.post(`http://127.0.0.1:8000/music/`, newSong);
         let newArray = this.state.displayMusic;
         newArray.push(newSong)
         this.setState({
