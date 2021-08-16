@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import DisplayMusicTable from './DisplayMusicTable/DisplayMusicTable';
+import SongForm from './SongForm/SongForm';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            displayMusic: []
-         }
+            displayMusic: [],   
+        }
     }
 
     componentDidMount(){
@@ -32,7 +33,10 @@ class App extends Component {
 
     async makePostRequest(){
         try{
-            let response = await axios.post('http://127.0.0.1:8000/music/');
+            let response = await axios.post(`http://127.0.0.1:8000/music/`);
+            this.setState({
+                displayMusic: response.data
+            })
         }
         catch(ex){
             console.log(ex);
@@ -51,11 +55,23 @@ class App extends Component {
         }
     }
 
+    addNewSong = (newSong) => {
+        let newArray = this.state.displayMusic;
+        newArray.push(newSong)
+        this.setState({
+            displayMusic: newArray
+        })
+    };
+
     render() { 
         return ( 
-            <h1>
+            <div>
+                <h2>
                 <DisplayMusicTable showMusic={this.state.displayMusic} deleteRow={this.makeDeleteRequest}/>
-            </h1>
+                <SongForm addSong = {this.addNewSong}/>
+                </h2>
+            
+            </div>
          );
     }
 }
