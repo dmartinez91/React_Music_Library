@@ -85,10 +85,10 @@ class App extends Component {
                 <SongForm addSong = {this.addNewSong}/>
                 <SearchBar thisChange={this.handleChange} onChange={this.onChange} />
                 <ul> 
-                    {this.state.displayMusic.filter((song) => song.title.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {song.artist} {song.title} </li>) }
-                    {this.state.displayMusic.filter((song) => song.artist.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {song.artist} {song.title} </li>) }
-                    {this.state.displayMusic.filter((song) => song.album.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {song.artist} {song.title} </li>) }
-                    {this.state.displayMusic.filter((song) => song.release_date.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {song.artist} {song.title} </li>) }
+                    {this.state.displayMusic.filter((song) => song.title.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li>  {`Title: ${song.title} Artist: ${song.artist} Album: ${song.album} Release Date: ${song.release_date}`} </li>) }
+                    {this.state.displayMusic.filter((song) => song.artist.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {`Title: ${song.title} Artist: ${song.artist} Album: ${song.album} Release Date: ${song.release_date}`} </li>) }
+                    {this.state.displayMusic.filter((song) => song.album.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {`Title: ${song.title} Artist: ${song.artist} Album: ${song.album} Release Date: ${song.release_date}`} </li>) }
+                    {this.state.displayMusic.filter((song) => song.release_date.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {`Title: ${song.title} Artist: ${song.artist} Album: ${song.album} Release Date: ${song.release_date}`} </li>) }
                 </ul>
                 </h2>
             
