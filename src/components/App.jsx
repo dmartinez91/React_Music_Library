@@ -15,7 +15,7 @@ class App extends Component {
     componentDidMount(){
         this.makeGetRequest();
         this.makeDeleteRequest();
-        this.makePostRequest();
+        this.addNewSong();
     }
 
     async makeGetRequest(){
