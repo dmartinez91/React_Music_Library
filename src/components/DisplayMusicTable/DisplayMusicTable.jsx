@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 
 const DisplayMusicTable = (props) => {
@@ -22,7 +23,7 @@ const DisplayMusicTable = (props) => {
                             <td className="table-primary">{showMusic.artist}</td>
                             <td className="table-primary">{showMusic.release_date}</td>
                             
-                            <button className="btn btn-primary text-yellow" onClick={() => props.deleteRow(showMusic.id)}> DELETE  </button>
+                            <Button className="btn btn-primary text-yellow" onClick={() => props.deleteRow(showMusic.id)}> DELETE  </Button>
                             
                             
                         </tr>
