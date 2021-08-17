@@ -81,7 +81,7 @@ class App extends Component {
         return ( 
             <div>
                 <h2>
-                <DisplayMusicTable showMusic={this.state.displayMusic} deleteRow={this.makeDeleteRequest} />
+                
                 <SongForm addSong = {this.addNewSong}/>
                 <SearchBar thisChange={this.handleChange} onChange={this.onChange} />
                 <ul> 
@@ -91,6 +91,12 @@ class App extends Component {
                     {this.state.displayMusic.filter((song) => song.release_date.toLowerCase() === this.state.userInput.toLowerCase()).map((song) => <li> {`Title: ${song.title} Artist: ${song.artist} Album: ${song.album} Release Date: ${song.release_date}`} </li>) }
                 </ul>
                 </h2>
+                    <h1 style={{display: 'flex', justifyContent: 'center'}}>
+                        <h1>Music Library</h1>
+                    </h1>
+                    <br>
+                    </br>
+                <h1> <DisplayMusicTable showMusic={this.state.displayMusic} deleteRow={this.makeDeleteRequest} /> </h1>
             
             </div>
          );
