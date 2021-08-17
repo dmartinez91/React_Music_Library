@@ -1,12 +1,12 @@
 import React from 'react';
-import './DisplayMusicTable.css';
+
 
 const DisplayMusicTable = (props) => {
     return ( 
         <React.Fragment>
         <form> 
         <div>
-            <table className="table table-dark table-borderless">
+            <table className="table table-bordered border-primary">
                 <tr>
                     <th className="table-primary">Title</th>
                     <th className="table-primary">Album</th>
